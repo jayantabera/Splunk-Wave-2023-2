@@ -1,0 +1,51 @@
+http://127.0.0.1:8000/en-US/app/launcher/home#
+
+8000 = splunk web port 
+en-US = splunk on this language 
+app = folder name 
+lanuncher = app name 
+
+
+Host - System name 
+source - actual path of data 
+sourcetype = loical secrigation of data 
+
+| = pipe 
+
+## Search - is used for searching any value or any event from raw data . 
+* = wildcurd
+NOT = except this one
+OR = either or condition
+AND = both
+[note: fields names eare case sensitive]
+
+## table = | table <field_name>,<field_name>,<field_name>
+## table = | table <field_name> <field_name> <field_name> 
+
+| table name,location
+
+##    dedup = is used for removing the dupicate value from table 
+ | dedup <field_name>,<field_name>,<field_name>
+ 
+## fields = filter the fields which one we want to work
+ | fields <field_name> - filter the fields
+ 
+ | fields - <field_name> - "-" works like not operater
+ 
+ 
+##  rename ---->>>> used for rename the fields
+|rename <old_field_name> as <new_field_name>
+|rename "method" as "vinay"
+| rename "method" as "vinay","status" as "nikhil"
+
+##   replace -->> used for replace the field value
+|replace <old_value> with <new_value> in <field_name>
+| replace "GET" with "Ankit" in method
+
+* -->wildcurd -- means all
+
+
+##   sort ->>>
+assending or dessending order arrange 
+ |sort bytes --> assending
+ |sort - bytes ----> dessending 
